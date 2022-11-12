@@ -1,16 +1,17 @@
 import http from '@/core/http-common'
 
 class ProductsService {
-    endpoint = '/food/products/search?query=arroz&number=50&apiKey=f09ed6a8234f4cb089e94c8fe1b4a72d';
-    getAll(){
-        return http.get(`${this.endpoint}`);
+    endpoint = '/food/products'
+    key = '8a7606a8bb6a43038afa67f32d739ca1'
+    getAll(name){
+        return http.get(`${this.endpoint}/search?query=${name}&number=100&apiKey=${this.key}`);
     }
 
-    /*getById(id){
-        return http.get(`${this.endpoint}/${id}`)
+    getById(id){
+        return http.get(`${this.endpoint}/${id}?apiKey=${this.key}`)
     }
 
-    getAllCoursesById(id){
+    /*getAllCoursesById(id){
         return http.get(`${this.endpoint}/${id}/courses`)
     }*/
 }

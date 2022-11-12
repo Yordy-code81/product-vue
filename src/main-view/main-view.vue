@@ -4,8 +4,8 @@
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-basket</v-icon>Nutricare</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" to="/profile">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
-        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" @click="logOut">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
+        <v-btn depressed outlined rounded class="text-capitalize mx-1" to="/">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn depressed outlined rounded class="text-capitalize mx-1">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
         <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -109,16 +109,7 @@ export default {
     val: true,
     typeUser: '',
   }),
-  updated() {
-    this.val = this.$store.state.authenticated;
-    this.typeUser = localStorage.getItem('typeUser')
-  },
-  mounted() {
-    if(!localStorage.getItem('user')){
-      this.val = false;
-      router.push("/sign-up");
-    }
-  },
+  
   methods:{
     logOut() {
       localStorage.removeItem('user');
@@ -127,10 +118,23 @@ export default {
       router.push("/log-in")
     }
   },
+  
   watch: {
     group () {
       this.drawer = false
     },
   },
+
+  /*computed: {
+    mini() {
+      switch (this.$vuetify.breakpoint.name) {
+        case 'xs': return true
+        case 'sm': return true
+        case 'md': return true
+        case 'lg': return false
+        case 'xl': return false
+      }
+    }
+  }*/
 }
 </script>
