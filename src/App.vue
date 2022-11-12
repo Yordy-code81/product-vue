@@ -1,12 +1,17 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <main-view/>
 </template>
+
+<script>
+
+import MainView from './main-view/main-view.vue';
+
+export default {
+  components: {
+    MainView
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
