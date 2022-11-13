@@ -2,7 +2,7 @@
     <v-app>
       <v-app-bar color="#009443" absolute app shrink-on-scroll prominent src="https://i.picsum.photos/id/89/4608/2592.jpg?hmac=G9E4z5RMJgMUjgTzeR4CFlORjvogsGtqFQozIRqugBk" fade-img-on-scroll scroll-target="#scrolling-techniques-5" scroll-threshold="500" dark>
         <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-basket</v-icon>Nutricare</v-toolbar-title>
+        <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-basket</v-icon>Agrochilling</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn depressed outlined rounded class="text-capitalize mx-1" to="/">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
         <v-btn depressed outlined rounded class="text-capitalize mx-1">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
