@@ -4,7 +4,7 @@
         <v-app-bar-nav-icon v-if="val" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-basket</v-icon>Agrochilling</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" to="/">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" to="/profile">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
         <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" @click="logOut">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
         <template v-slot:img="{ props }">
         <v-img

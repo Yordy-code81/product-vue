@@ -31,6 +31,11 @@ const routes = [
     component: () => import('@/authenticate/pages/log-in')
   },
   {
+    path: '/profile',
+    name: 'profile-view',
+    component: () => import('@/profile/pages/profile')
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
