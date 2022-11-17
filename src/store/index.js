@@ -5,12 +5,25 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    authenticated: true
   },
   getters: {
   },
   mutations: {
+    changeAuthenticatedTrue ( state ) {
+      state.authenticated = true
+  },
+  changeAuthenticatedFalse ( state ) {
+      state.authenticated = false
+  }
   },
   actions: {
+    changeAuthenticatedTrueAction ( context ) {
+      context.commit('changeAuthenticatedTrue');
+  },
+  changeAuthenticatedFalseAction ( context ) {
+      context.commit('changeAuthenticatedFalse');
+  }
   },
   modules: {
   }

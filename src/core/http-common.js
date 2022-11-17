@@ -1,6 +1,8 @@
+import authHeader from "@/services/auth_header";
 import axios from "axios";
 
 export default axios.create({
-    baseURL: 'https://api.spoonacular.com',
-    headers: {'Content-type' : 'application/json'}
+    baseURL: 'http://localhost:8090/api/v1',
+    headers: authHeader()
+    //headers: {'Content-type' : 'application/json'}
 })

@@ -1,11 +1,11 @@
 <template>
     <v-app>
       <v-app-bar color="#009443" absolute app shrink-on-scroll prominent src="https://i.picsum.photos/id/89/4608/2592.jpg?hmac=G9E4z5RMJgMUjgTzeR4CFlORjvogsGtqFQozIRqugBk" fade-img-on-scroll scroll-target="#scrolling-techniques-5" scroll-threshold="500" dark>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon v-if="val" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
         <v-toolbar-title class="font-weight-bold my-auto"><v-icon class="mr-1 py-1">mdi-basket</v-icon>Agrochilling</v-toolbar-title>
         <v-spacer></v-spacer>
-        <v-btn depressed outlined rounded class="text-capitalize mx-1" to="/">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
-        <v-btn depressed outlined rounded class="text-capitalize mx-1">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
+        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" to="/">Profile<v-icon class="ml-2">mdi-account-circle</v-icon></v-btn>
+        <v-btn v-if="val" depressed outlined rounded class="text-capitalize mx-1" @click="logOut">Log out<v-icon class="ml-2">mdi-logout-variant</v-icon></v-btn>
         <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
@@ -14,7 +14,7 @@
       </template>
       </v-app-bar>
 
-      <v-navigation-drawer v-model="drawer" dark absolute bottom temporary color="#009b48">
+      <v-navigation-drawer v-if="val" v-model="drawer" dark absolute bottom temporary color="#009b48">
 
         <v-list-item align="center">
           <v-list-item-content>
@@ -36,21 +36,21 @@
             <v-list-item-icon>
               <v-icon>mdi-bullhorn</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Products</v-list-item-title>
+            <v-list-item-title>Search Products</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/">
             <v-list-item-icon>
               <v-icon>mdi-human-queue</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Teachers</v-list-item-title>
+            <v-list-item-title>Create Product</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/">
             <v-list-item-icon>
               <v-icon>mdi-podium-gold</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Top Teachers</v-list-item-title>
+            <v-list-item-title>Products</v-list-item-title>
           </v-list-item>
 
           <v-list-item link to="/">
@@ -109,6 +109,18 @@ export default {
     val: true,
     typeUser: '',
   }),
+
+  updated() {
+    this.val = this.$store.state.authenticated;
+    this.typeUser = localStorage.getItem('typeUser')
+  },
+
+  mounted() {
+    if(!localStorage.getItem('user')){
+      this.val = false;
+      router.push("/sign-up");
+    }
+  },
   
   methods:{
     logOut() {

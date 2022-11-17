@@ -1,4 +1,4 @@
-import http from '@/core/http-common'
+import http from '@/core/http-common-spoonacular'
 
 class ProductsService {
     endpoint = '/food/products'
