@@ -6,9 +6,9 @@ class CreateProductService {
         return http.post(`${this.endpoint}/${sellerId}/products`, product);
     }
 
-    /*getAllCoursesById(id){
-        return http.get(`${this.endpoint}/${id}/courses`)
-    }*/
+    getAllProducts(){
+        return http.get(`/products`)
+    }
 }
 
 export default new CreateProductService();

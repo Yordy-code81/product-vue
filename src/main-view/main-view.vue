@@ -46,18 +46,11 @@
             <v-list-item-title>Create Product</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/">
+          <v-list-item link to="/products-offer">
             <v-list-item-icon>
               <v-icon>mdi-podium-gold</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Products</v-list-item-title>
-          </v-list-item>
-
-          <v-list-item link to="/">
-            <v-list-item-icon>
-              <v-icon>mdi-format-list-bulleted-square</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Competences</v-list-item-title>
           </v-list-item>
         </v-list>
 
