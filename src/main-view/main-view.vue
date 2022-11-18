@@ -39,7 +39,7 @@
             <v-list-item-title>Search Products</v-list-item-title>
           </v-list-item>
 
-          <v-list-item link to="/">
+          <v-list-item link to="/register-product">
             <v-list-item-icon>
               <v-icon>mdi-human-queue</v-icon>
             </v-list-item-icon>
