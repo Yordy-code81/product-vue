@@ -1,4 +1,7 @@
-# product
+# Product Agrochilling
+
+## Description
+This repository contains the Agrochilling Frontend made with javascript and vue framework
 
 ## Project setup
 ```
