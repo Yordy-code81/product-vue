@@ -1,5 +1,5 @@
 import axios from 'axios';
-const API_URL = 'http://localhost:8090/api/v1/';
+const API_URL = 'https://app-agrochilling-api-221121223323.azurewebsites.net/api/v1/';
 
 class AuthService {
     login(user, typeU) {

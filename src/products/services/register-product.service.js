@@ -9,6 +9,10 @@ class CreateProductService {
     getAllProducts(){
         return http.get(`/products`)
     }
+
+    getSellerOfProduct(sellerId) {
+        return http.get(`/sellers/${sellerId}`)
+    }
 }
 
 export default new CreateProductService();

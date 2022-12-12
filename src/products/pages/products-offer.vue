@@ -8,7 +8,7 @@
       <v-row>
         <v-col cols="12">
           <div class="d-flex flex-wrap justify-center mb-8">
-            <v-card v-for="product in products" :key="product.id" class="pb-2 ma-3" width="345" max-height="350">
+            <v-card v-for="product in produ" :key="product.id" class="pb-2 ma-3" width="345" max-height="550">
                 <v-img
                   class="white--text align-end"
                   height="200px"
@@ -25,6 +25,7 @@
                   <div>price: S/{{ product.price }}</div>
                 
                   <div>Amount: {{ product.amount }} {{ product.type }}</div>
+
                 </v-card-text>
             
                 <v-card-actions>
@@ -32,15 +33,16 @@
                     color="green"
                     text
                   >
-                    Share
+                    {{ product.first_name }} {{ product.last_name }}
                   </v-btn>
               
                   <v-btn
                     color="green"
                     text
                   >
-                    Explore
+                    {{ product.phone }}
                   </v-btn>
+
                 </v-card-actions>
             </v-card>
           </div>
@@ -57,7 +59,9 @@ export default {
 
     data: () => ({
       products: [],
+      produ: [],
       isValid: true,
+      idSelect: null,
       name: '',
       nameRules: [ v => !!v || 'Product name is required'],
     }),
@@ -81,15 +85,33 @@ export default {
               amount: prod.amount,
               type: prod.type,
               image: prod.image,
-              price: prod.price
+              price: prod.price,
+              sellerId: prod.sellerId
             })
           )
-          //console.log(response.data['products']);
+          this.products.forEach(value => {
+            CreateProductService.getSellerOfProduct(value.sellerId)
+              .then(res => {
+                let seller = res.data
+                let aux_seller = {
+                  id: value.id,
+                  name: value.name,
+                  amount: value.amount,
+                  type: value.type,
+                  image: value.image,
+                  price: value.price,
+                  first_name: seller.first_name,
+                  last_name: seller.last_name,
+                  phone: seller.phone
+                }
+                this.produ.push(aux_seller)
+              })
+          })
         })
         .catch(e => {
           console.log(e)
         })
-      }
+      },
     }
 }
 </script>
